@@ -6,11 +6,11 @@ public:
 
         for(int right = 0; right < n; right++){
             if(nums[right] == 0){
-                zeroCount++;
+                zeroCount++; //used to count number of zeros
             }
 
             if(zeroCount > k){
-
+                
                 if(nums[left] == 0){
                     zeroCount--;
                 }
