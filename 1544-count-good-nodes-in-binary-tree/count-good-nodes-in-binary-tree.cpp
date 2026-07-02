@@ -17,15 +17,14 @@ private:
             return;
         }
 
-        if(root->val >= maxValue){
-            goodNode++;
-        }
-
         int newMax = max(root->val, maxValue);
 
         solve(root->left, newMax);
         solve(root->right, newMax);
         
+        if(root->val >= maxValue){
+            goodNode++;
+        }
     }
     
 public:
