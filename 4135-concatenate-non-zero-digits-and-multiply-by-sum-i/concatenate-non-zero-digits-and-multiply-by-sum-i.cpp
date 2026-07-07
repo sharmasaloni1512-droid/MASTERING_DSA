@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long sumAndMultiply(int n) {
-        
+
         if(n == 0){
             return 0;
         }
@@ -20,7 +20,7 @@ public:
             n = n / 10;
         }
 
-        x = stoll(s);
+        x = stoll(s); // stoll is used to convert string to long long int
      
         long long rev = 0;
 
