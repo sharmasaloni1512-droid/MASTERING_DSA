@@ -1,19 +1,19 @@
 class Solution {
 public:
-// Bottom - Up Approach 
+// Constant space optimization
     int climbStairs(int n) {
-        
         if(n <= 2){
             return n;
         }
 
-        vector<int> dp(n+1, 0);
-        dp[1] = 1;
-        dp[2] = 2;
+        int previous_two = 1;
+        int previous_one = 2;
 
         for(int i = 3; i<=n; i++){
-            dp[i] = dp[i-1] + dp[i-2];
+            int current = previous_one + previous_two;
+            previous_two = previous_one;
+            previous_one = current;
         }
-        return dp[n];
+        return previous_one;
     }
 };
