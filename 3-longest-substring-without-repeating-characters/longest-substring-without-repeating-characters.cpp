@@ -7,12 +7,12 @@ public:
         unordered_map<char,int> mpp;
 
         for(int right = 0; right < n; right++){
-            mpp[s[right]]++;
 
-            while(mpp[s[right]] > 1){
-                mpp[s[left]]--;
-                left++;
+            if(mpp.contains(s[right])){
+                left = max ( left, mpp[s[right]] + 1);
             }
+
+            mpp[s[right]] = right;
 
             maxLength = max(maxLength, right - left + 1);
 
