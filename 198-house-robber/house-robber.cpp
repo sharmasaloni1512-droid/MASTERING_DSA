@@ -1,7 +1,7 @@
 // TOP- DOWM APPROACH ~ TC -O(n)
 class Solution {
 public:
-    int solve(vector<int> nums, int idx, vector<int> & memo){
+    int solve(vector<int>& nums, int idx, vector<int> & memo){
         if(idx >= nums.size()){
             return 0;
         }
