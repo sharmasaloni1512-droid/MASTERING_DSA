@@ -15,7 +15,7 @@ public:
 
         int ans = 0;
         for(int i = 0; i < n; i++){
-            if(numbers.find(multiples[i]) == numbers.end()){
+            if(numbers.find(multiples[i]) == numbers.end()){ //condition to find non-existing element
                 ans = multiples[i];
                 break;
             }
@@ -24,6 +24,7 @@ public:
         if(ans == 0){
             return k * (n + 1);
         }
+        
         return ans;
     }
 };
