@@ -11,21 +11,27 @@
  */
 class Solution {
 public:
-    void inorderTraversal(TreeNode* root, vector<int> & nums){
+    int count = 0;
+    void inorderTraversal(TreeNode* root, int k, int &ans){
         if(root == NULL){
             return;
         }
 
-        inorderTraversal(root->left, nums);
-        nums.push_back(root->val);
-        inorderTraversal(root->right, nums);
+        inorderTraversal(root->left, k, ans);
+        count++;
+        if(count == k){
+            ans = root->val;
+            return;
+        }
+     
+        inorderTraversal(root->right, k, ans);
 
     }
     int kthSmallest(TreeNode* root, int k) {
-        vector<int> nums;
-        inorderTraversal(root, nums);
+        int ans;
+        inorderTraversal(root, k, ans);
         
-        return nums[k-1];
+        return ans;
 
     }
 };
