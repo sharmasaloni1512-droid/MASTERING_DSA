@@ -18,7 +18,6 @@ public:
                 }
 
                 else if (j > 0){
-                    cout << j << " ";
                     dp[j] = dp[j] + dp[j - 1];
                 }
             }
