@@ -3,21 +3,19 @@ public:
     int maxProduct(vector<int>& nums) {
         int n = nums.size();
         int max_p = nums[0];
+        int min_p = nums[0];
+        int result = nums[0];
 
-        int suffix = 1, prefix = 1;
-        for(int i = 0; i < n; i++){
-            if(prefix == 0){
-                prefix = 1;
-            }
-            if(suffix == 0){
-                suffix = 1;
+        for(int i = 1; i < n; i++){
+            if(nums[i] < 0){
+                swap(max_p, min_p);
             }
 
-            prefix *= nums[i];
-            suffix *= nums[n - i - 1];
+            max_p = max(nums[i], nums[i] * max_p);
+            min_p = min(nums[i], nums[i] * min_p);
 
-            max_p = max(max_p, max(suffix, prefix));
+            result = max(result, max(max_p, min_p));
         }
-        return max_p;
+        return result;
     }
 };
